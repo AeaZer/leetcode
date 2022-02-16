@@ -2,33 +2,27 @@ package main
 
 // 56. 合并区间
 // 一维数组排序
-func sortMerge(arr []int) []int {
-	return _quickSort(arr, 0, len(arr)-1)
-}
+func merge(intervals [][]int) [][]int {
+	// 排序
+	size := len(intervals)
+	sorted := quickSort(intervals, 0, size-1)
 
-func _quickSort(arr []int, left, right int) []int {
-	if left < right {
-		partitionIndex := partition(arr, left, right)
-		_quickSort(arr, left, partitionIndex-1)
-		_quickSort(arr, partitionIndex+1, right)
-	}
-	return arr
-}
+	res := make([][]int, 0, size)
+	for i := 0; i < size; i++ {
+		start := sorted[i]
+		temp := start
+		for j := i + 1; j < size; j++ {
+			end := sorted[j]
 
-func partition(arr []int, left, right int) int {
-	pivot := left
-	index := pivot + 1
-
-	for i := index; i <= right; i++ {
-		if arr[i] < arr[pivot] {
-			swap(arr, i, index)
-			index += 1
+			if start[1] <= end[0] {
+				start = end
+				continue
+			}
+			res = append(res, append([]int(nil), []int{temp[0], start[1]}...))
+			i = j
+			break
 		}
 	}
-	swap(arr, pivot, index-1)
-	return index - 1
-}
 
-func swap(arr []int, i, j int) {
-	arr[i], arr[j] = arr[j], arr[i]
+	return res
 }

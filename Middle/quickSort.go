@@ -1,21 +1,32 @@
 package main
 
-func quickSort(nums *[]int, l, r int) {
-	left, right := l, r
-	if left <= right {
-		temp := (*nums)[left]
-		for left != right {
-			for right > left {
-				right--
-				(*nums)[left] = (*nums)[right]
-			}
-			for left < right {
-				left++
-				(*nums)[right] = (*nums)[left]
-			}
-		}
-		(*nums)[right] = temp
-		quickSort(nums, l, left-1)
-		quickSort(nums, right+1, r)
+func sortMerge(arr [][]int) [][]int {
+	return quickSort(arr, 0, len(arr)-1)
+}
+
+func quickSort(arr [][]int, left, right int) [][]int {
+	if left < right {
+		partitionIndex := partition(arr, left, right)
+		quickSort(arr, left, partitionIndex-1)
+		quickSort(arr, partitionIndex+1, right)
 	}
+	return arr
+}
+
+func partition(arr [][]int, left, right int) int {
+	pivot := left
+	index := pivot + 1
+
+	for i := index; i <= right; i++ {
+		if arr[i][0] < arr[pivot][0] {
+			swap(arr, i, index)
+			index += 1
+		}
+	}
+	swap(arr, pivot, index-1)
+	return index - 1
+}
+
+func swap(arr [][]int, i, j int) {
+	arr[i], arr[j] = arr[j], arr[i]
 }

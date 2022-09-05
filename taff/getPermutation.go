@@ -1,4 +1,4 @@
-package Taff
+package taff
 
 /*给出集合 [1,2,3,...,n]，其所有元素共有 n! 种排列。
 

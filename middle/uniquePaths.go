@@ -1,5 +1,7 @@
 package main
 
+import "math/big"
+
 /*一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
 
 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
@@ -40,4 +42,22 @@ func checkRecursionPath(startRow, startCol int, res *int, maxRow, maxCol int) {
 	}
 
 	return
+}
+
+// 排列组合问题 C(m-1)/(m+n-2) 超出 memory limit
+// Cn(m) = !n/(!m*!(n-m))
+func uniquePaths2(m int, n int) int {
+	return factorial(m+n-2) / (factorial(n-1) * factorial(m-1))
+}
+
+func factorial(num int) int {
+	if num == 1 {
+		return 1
+	}
+	return num * factorial(num-1)
+}
+
+// 官方答案
+func uniquePaths3(m, n int) int {
+	return int(new(big.Int).Binomial(int64(m+n-2), int64(n-1)).Int64())
 }

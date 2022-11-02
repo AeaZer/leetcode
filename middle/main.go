@@ -1,8 +1,6 @@
 package main
 
-import "fmt"
-
 func main() {
-	combine := maxCombine()
-	fmt.Println(combine)
+	head := newListNode()
+	rotateRight(head, 5)
 }

@@ -45,6 +45,34 @@ func (tree *node) SearchKValue(k int) (int, bool) {
 	return slice[k-1], true
 }
 
+func (tree *node) beforeTraverse(res []int) []int {
+	if tree == nil {
+		return res
+	}
+	res = append(res, tree.value)
+	tree.left.beforeTraverse(res)
+	tree.right.beforeTraverse(res)
+	return res
+}
+
+func (tree *node) BeforeTraverse() []int {
+	return tree.beforeTraverse([]int{})
+}
+
+func (tree *node) afterTraverse(res []int) []int {
+	if tree == nil {
+		return res
+	}
+	tree.left.afterTraverse(res)
+	tree.right.afterTraverse(res)
+	res = append(res, tree.value)
+	return res
+}
+
+func (tree *node) AfterTraverse() []int {
+	return tree.afterTraverse([]int{})
+}
+
 func newBSTWithSlice(nums []int, needSort bool) *node {
 	if len(nums) == 0 {
 		return nil

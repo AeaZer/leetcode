@@ -106,3 +106,26 @@ func rangeBSTToSlice(tree *node, res []int) []int {
 func RangeBSTToSlice(tree *node) []int {
 	return rangeBSTToSlice(tree, []int{})
 }
+
+func findIndex(arr []int, fn func(i int) bool) int {
+	for i := 0; i < len(arr); i++ {
+		if fn(i) {
+			return i
+		}
+	}
+	return -1
+}
+
+func buildTree(preorder []int, inorder []int) *node {
+	if len(preorder) == 0 {
+		return nil
+	}
+	rootVal := preorder[0]
+	root := &node{value: rootVal}
+	idx := findIndex(inorder, func(i int) bool {
+		return inorder[i] == rootVal
+	})
+	root.left = buildTree(preorder[1:idx+1], inorder[:idx])
+	root.right = buildTree(preorder[idx+1:], inorder[idx+1:])
+	return root
+}

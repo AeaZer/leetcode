@@ -5,13 +5,15 @@ package string_array
 给定两个整数数组 gas 和 cost ，如果你可以按顺序绕环路行驶一周，则返回出发时加油站的编号，否则返回 -1 。如果存在解，则 保证 它是 唯一 的。
 */
 
-// [1,2,3,4]
-
 // https://leetcode.cn/problems/gas-station/
 
 func canCompleteCircuit(gas []int, cost []int) int {
+	if len(gas) == 1 && gas[0] == cost[0] {
+		return 0
+	}
+
 	for i := 0; i < len(gas); i++ {
-		if gas[i] < cost[i] {
+		if gas[i] <= cost[i] {
 			continue
 		}
 		if runCircle(gas, cost, i) {

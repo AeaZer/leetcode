@@ -1,5 +1,7 @@
 package hash
 
+import "sort"
+
 /*给定一个未排序的整数数组 nums ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。
 请你设计并实现时间复杂度为 O(n) 的算法解决此问题。*/
 
@@ -15,12 +17,15 @@ func longestConsecutive(nums []int) int {
 	for i := range nums {
 		m[nums[i]] = true
 	}
+
+	sort.Ints(nums)
 	var maxLength int
-	for i := 0; i < numsL; i++ {
+	for i := 0; i < numsL; {
 		n, currentLength := nums[i], 1
 		// 一直循环，直到不连续为止
 		for {
 			n++
+			i++
 			if !m[n] {
 				if currentLength > maxLength {
 					maxLength = currentLength

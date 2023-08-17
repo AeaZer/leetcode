@@ -1,4 +1,4 @@
-package classic_150
+package interval
 
 import "sort"
 

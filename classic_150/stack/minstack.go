@@ -39,7 +39,9 @@ func (s *MinStack) Push(val int) {
 		val:      val,
 		nextNode: s.node,
 	}
-	s.node.minValue()
+	if s.node.val < s.minValue {
+		s.minValue = s.node.val
+	}
 }
 
 // Pop 删除栈顶元素

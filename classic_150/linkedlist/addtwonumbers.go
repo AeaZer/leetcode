@@ -53,7 +53,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		}
 
 	}
-	// 解决最后一位先加大于等于 10 的情况，如果这个 carry 不等于 0 那么必定等于 1，因为 0 <= val <= 9
+	// 解决最后一位先加大于等于 10 的情况，
+	// 如果这个 carry 不等于 0 那么必定等于 1，因为 0 <= val <= 9
 	if carry != 0 {
 		tmp.Next = &ListNode{
 			Val: carry,

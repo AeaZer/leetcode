@@ -6,27 +6,27 @@ package tree
 /*填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL 。
 初始状态下，所有 next 指针都被设置为 NULL 。*/
 
-type Node struct {
+type connectNode struct {
 	Val   int
-	Left  *Node
-	Right *Node
-	Next  *Node
+	Left  *connectNode
+	Right *connectNode
+	Next  *connectNode
 }
 
 /**
- * Definition for a Node.
- * type Node struct {
+ * Definition for a connectNode.
+ * type connectNode struct {
  *     Val int
- *     Left *Node
- *     Right *Node
- *     Next *Node
+ *     Left *connectNode
+ *     Right *connectNode
+ *     Next *connectNode
  * }
  */
 
-func connect(root *Node) *Node {
-	deepStore := make(map[int][]*Node)
-	var recursive func(root *Node, depth int)
-	recursive = func(root *Node, depth int) {
+func connect(root *connectNode) *connectNode {
+	deepStore := make(map[int][]*connectNode)
+	var recursive func(root *connectNode, depth int)
+	recursive = func(root *connectNode, depth int) {
 		if root == nil {
 			return
 		}

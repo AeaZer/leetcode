@@ -1,8 +1,9 @@
 package graph
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCanFinish(t *testing.T) {
@@ -14,6 +15,6 @@ func TestCanFinish(t *testing.T) {
 	finish = canFinish(3, [][]int{{1, 4}})
 	assert.True(finish)
 
-	finish = canFinish(7, [][]int{{1, 0}, {0, 3}, {0, 2}, {3, 2}, {2, 5}, {4, 5}, {5, 6}, {2, 4}})
+	finish = canFinish2(7, [][]int{{1, 0}, {0, 3}, {0, 2}, {3, 2}, {2, 5}, {4, 5}, {5, 6}, {2, 4}})
 	assert.True(finish)
 }

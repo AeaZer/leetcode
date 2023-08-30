@@ -77,12 +77,12 @@ func canFinish2(numCourses int, prerequisites [][]int) bool {
 
 	// 构建图和入度数组
 	for _, prerequisite := range prerequisites {
-		course, dep := prerequisite[0], prerequisite[1]
-		graph[dep] = append(graph[dep], course)
+		course, nextCourse := prerequisite[0], prerequisite[1]
+		graph[nextCourse] = append(graph[nextCourse], course)
 		inDegrees[course]++
 	}
 
-	queue := make([]int, 0) //入度为 0 的数组
+	queue := make([]int, 0) // 入度为 0 的数组
 	for course, inDegree := range inDegrees {
 		if inDegree == 0 {
 			queue = append(queue, course)

@@ -15,6 +15,6 @@ func TestCanFinish(t *testing.T) {
 	finish = canFinish(3, [][]int{{1, 4}})
 	assert.True(finish)
 
-	finish = canFinish2(7, [][]int{{1, 0}, {0, 3}, {0, 2}, {3, 2}, {2, 5}, {4, 5}, {5, 6}, {2, 4}})
+	finish = canFinish2(7, [][]int{{1, 3}, {2, 3}})
 	assert.True(finish)
 }

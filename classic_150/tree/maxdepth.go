@@ -31,3 +31,20 @@ func maxDepth(root *TreeNode) int {
 	recursive(root, 0)
 	return ret
 }
+
+func minDepth(root *TreeNode) int {
+	var ret int
+	var recursive func(root *TreeNode, depth int)
+	recursive = func(root *TreeNode, depth int) {
+		if root == nil || (ret != 0 && depth > ret) {
+			return
+		}
+		if root.Left == nil && root.Right == nil {
+			ret = depth
+		}
+		recursive(root.Left, depth+1)
+		recursive(root.Right, depth+1)
+	}
+	recursive(root, 1)
+	return ret
+}

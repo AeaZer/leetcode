@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -27,7 +26,7 @@ var hexBase10Map = map[string]int{
 const hexMulti float64 = 16
 
 func main() {
-	fmt.Println(hexToInt("0xAA"))
+	findTheArrayConcVal([]int{7, 52, 2, 4})
 }
 
 func hexToInt(hex string) int32 {

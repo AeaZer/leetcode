@@ -20,6 +20,8 @@ package unidimensionaldp
 输入：nums = [7,7,7,7,7,7,7]
 输出：1*/
 
+// 动态规划转移方程 f(i) = f(j)+1 // j<i && nums[i] > nums[j]
+
 func lengthOfLIS(nums []int) int {
 	nl := len(nums)
 	if nl == 0 {

@@ -9,6 +9,8 @@ package dp
 // 动态规划转移方程：
 // dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j] // i>0 && j>0
 // dp[i][j] = dp[i][j] = dp[i-1][j] + grid[i][j] // i==0 || j==0
+
+// 思路：算出每一点到达位置的最小路径和
 func minPathSum(grid [][]int) int {
 	rows := len(grid)
 	cols := len(grid[0])

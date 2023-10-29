@@ -1,5 +1,8 @@
 package _0231029
 
+// 100102. 数组的最小相等和
+// https://leetcode.cn/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros/description/
+
 /*给你两个由正整数和 0 组成的数组 nums1 和 nums2 。
 
 你必须将两个数组中的 所有 0 替换为 严格 正整数，并且满足两个数组中所有元素的和 相等 。

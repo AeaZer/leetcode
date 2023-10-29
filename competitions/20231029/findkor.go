@@ -2,6 +2,9 @@ package _0231029
 
 import "math"
 
+// 100111. 找出数组中的 K-or 值
+// https://leetcode.cn/problems/find-the-k-or-of-an-array/description/
+
 /*给你一个下标从 0 开始的整数数组 nums 和一个整数 k 。
 
 nums 中的 K-or 是一个满足以下条件的非负整数：

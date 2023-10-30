@@ -1,4 +1,4 @@
-package competitions
+package olddate
 
 func constructProductMatrix(grid [][]int) [][]int {
 	multiTotal := 1

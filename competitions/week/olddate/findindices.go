@@ -1,4 +1,4 @@
-package competitions
+package olddate
 
 // 2903. 找出满足差值条件的下标 I
 // https://leetcode.cn/problems/find-indices-with-index-and-value-difference-i/

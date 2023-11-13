@@ -10,30 +10,30 @@ func numSplits(s string) int {
 	sl := len(s)
 	left, right := make([]int, sl-1), make([]int, sl-1)
 	left[0], right[0] = 1, 1
-	leftBit, rightBit := uint8(0), uint8(0)
-	for i, j := 1, sl-1; i < sl-1; {
+	leftBit, rightBit := 1<<(s[0]-'a'), 1<<(s[sl-1]-'a')
+	for i := 1; i < sl-1; i++ {
 		left[i] = left[i-1]
-		if !hasSet(s[i], leftBit) {
+		lb := 1 << (s[i] - 'a')
+		if !hasSet(lb, leftBit) {
 			left[i]++
-			leftBit |= 1 << (s[i] - 'a')
+			leftBit |= lb
 		}
-		right[j] = right[j-1]
-		if !hasSet(s[sl-i-1], rightBit) {
-			right[j]++
-			rightBit |= 1 << (s[sl-i-1] - 'a')
+		right[i] = right[i-1]
+		rb := 1 << (s[sl-i-1] - 'a')
+		if !hasSet(rb, rightBit) {
+			right[i]++
+			rightBit |= rb
 		}
-		i++
-		j++
 	}
 	var ans int
-	for i := 0; i < sl; i++ {
-		if left[i] == right[sl-i-1] {
+	for i := 0; i < sl-1; i++ {
+		if left[i] == right[sl-i-2] {
 			ans++
 		}
 	}
 	return ans
 }
 
-func hasSet(b, num uint8) bool {
-	return b-'a'&num != 0
+func hasSet(b, num int) bool {
+	return b&num != 0
 }

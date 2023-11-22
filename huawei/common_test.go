@@ -1,6 +1,7 @@
 package huawei
 
 import (
+	"strconv"
 	"testing"
 )
 
@@ -15,4 +16,14 @@ func TestFindMaxParallelism(t *testing.T) {
 func TestWordFlashback(t *testing.T) {
 	ans := wordFlashback("hello im is areazer, do you have any problem? haha")
 	t.Log(ans)
+}
+
+func TestPerfectCity(t *testing.T) {
+	ans := ipStrToInt("1.1.1.15")
+	t.Log(strconv.FormatInt(ans, 2))
+}
+
+func TestActualCost(t *testing.T) {
+	t.Log(actualCost(225))
+	t.Log(actualCost(15))
 }

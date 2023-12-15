@@ -1,7 +1,7 @@
 package everyday
 
 type TreeNode struct {
-	value int
-	left  *TreeNode
-	right *TreeNode
+	Val int
+	Left  *TreeNode
+	Right *TreeNode
 }

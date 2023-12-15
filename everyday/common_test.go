@@ -9,3 +9,16 @@ func TestHIndex(t *testing.T) {
 func TestCountPoints(t *testing.T) {
 	countPoints("B0B6G0R6R0R6G9")
 }
+
+func TestReverseOddLevels(t *testing.T) {
+	node := &TreeNode{
+		Val: 7,
+		Left: &TreeNode{
+			Val: 13,
+		},
+		Right: &TreeNode{
+			Val: 11,
+		},
+	}
+	reverseOddLevels(node)
+}

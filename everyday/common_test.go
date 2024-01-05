@@ -22,3 +22,24 @@ func TestReverseOddLevels(t *testing.T) {
 	}
 	reverseOddLevels(node)
 }
+
+func TestRemoveNodes(t *testing.T) {
+	// [5,2,13,3,8]
+	node := &ListNode{
+		Val: 5,
+		Next: &ListNode{
+			Val: 2,
+			Next: &ListNode{
+				Val: 13,
+				Next: &ListNode{
+					Val: 3,
+					Next: &ListNode{
+						Val:  8,
+						Next: nil,
+					},
+				},
+			},
+		},
+	}
+	removeNodes(node)
+}

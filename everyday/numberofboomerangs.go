@@ -1,5 +1,7 @@
 package everyday
 
+// 447. 回旋镖的数量
+// https://leetcode.cn/problems/number-of-boomerangs/description/
 func numberOfBoomerangs(points [][]int) int {
 	var ans int
 	for _, point := range points {
